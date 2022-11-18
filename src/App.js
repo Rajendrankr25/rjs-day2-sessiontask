@@ -53,8 +53,8 @@ function Movie({ poster, title, rating, summary }) {
     <div className='col-md-4'>
       <div className="card">
         <img className="poster" src={poster} alt={title} />
-        <h1 className="title">{title}</h1>
-        <h4 className="rating">{rating}</h4>
+        <h3 className="title">{title}</h3>
+        <h4 className="rating">⭐{rating}</h4>
         <span className="summary">{summary}</span>
       </div>
     </div>
