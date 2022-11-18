@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-top: 100px;
 }
 
 .poster {
@@ -8,18 +9,16 @@
   object-fit: cover;
 }
 
-.title {
-  /* display: inline; */
+.row {
+  display: flex;
 }
+
 
 .summary {
   width: 250px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: left; */
 }
 
-.container {
-  text-align: center;
+.col-md-4 {
+  padding: 20px;
+  margin: 0px 20px;
 }
