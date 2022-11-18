@@ -9,13 +9,17 @@
 }
 
 .title {
-  display: inline;
+  /* display: inline; */
 }
 
 .summary {
   width: 250px;
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  text-align: left;
+  text-align: left; */
+}
+
+.container {
+  text-align: center;
 }
