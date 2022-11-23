@@ -1,30 +1,49 @@
-body {
-  background-color: black;
-}
-
-.App {
-  text-align: center;
-  margin-top: 100px;
-  color: white;
-}
-
 .poster {
-  height: 300px;
-  width: 250px;
+  height: 640px;
+  width: 100%;
   object-fit: cover;
-  border-radius: 5%;
 }
 
-.row {
+.movie-container {
+  margin-top: 30px;
+  width: 340px;
+}
+
+.movieSpecs {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* RAM */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+.toggle {
+  border: none;
+  background-color: white;
 }
 
 
-.summary {
-  width: 250px;
-}
+/* .movie-poster {
+  height: 640px;
+  width: 100%;
+  /* zoom  in */
+/*
+  object-fit: cover;
+} */
 
-.col-md-4 {
-  padding: 20px;
-  margin: 0px 20px;
-}
+/* .movie-name {
+  font-size: 24px;
+  margin: 0;
+} */
+
+/* .movie-specs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}*/

@@ -1,7 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { AddColor } from './AddColor.js'
+import { useState } from 'react';
 
 function App() {
+
+  return (
+    <div className="App">
+      {/* <MovieList /> */}
+      {/* <AddColor /> */}
+      <AddMovie />
+    </div>
+  );
+}
+function MovieList() {
   const mlist = [
     {
       poster: "https://assetscdn1.paytm.com/images/cinema/Sardar-min-7878f140-5093-11ed-accc-bda99c20e847.jpg",
@@ -29,36 +40,63 @@ function App() {
     }
   ]
   return (
-    <div className="App">
-      <h1>React Day2 Session Task!!!</h1>
-      <h4>Movie details</h4>
-      <div className='container'>
-        <div className='row'>
-          {mlist.map((data) => (
-            <Movie
-              poster={data.poster}
-              title={data.title}
-              rating={data.rating}
-              summary={data.summary}
-            />
-          ))}
-        </div>
+    <div className='movie-list'>
+      {mlist.map((data) => (
+        <Movie movie={data} />
+      ))}
+    </div>
+  )
+}
+
+function Movie({ movie }) {
+  const styles = {
+    color: movie.rating >= 8 ? "green" : "red"
+  }
+  const [show, setShow] = useState(true);
+  return (
+    <div className="movie-container">
+      <img className="poster" src={movie.poster} alt={movie.title} />
+      <div className='movieSpecs'>
+        <h3 className="title">{movie.title}</h3>
+        <p style={styles} className="rating">⭐{movie.rating}</p>
       </div>
+      <button className='toggle' onClick={() => setShow(!show)}>🔼🔽</button>
+      {show ? <p className="summary">{movie.summary}</p> : null}
+      <Counter />
+    </div>
+  )
+}
+
+function Counter() {
+  let [like, setLike] = useState(0);
+  let [disLike, setDisLike] = useState(0);
+
+  const styles = {
+    border: "none",
+    backgroundColor: "white",
+    fontSize: "20px",
+  }
+
+  return (
+    <div>
+      <button style={styles} onClick={() => setLike(like + 1)}>👍{like}</button>
+      <button style={styles} onClick={() => setDisLike(disLike + 1)}>👎{disLike}</button>
     </div>
   );
 }
 
-function Movie({ poster, title, rating, summary }) {
+function AddMovie() {
   return (
-    <div className='col-md-4'>
-      <div className="card">
-        <img className="poster" src={poster} alt={title} />
-        <h3 className="title">{title}</h3>
-        <h4 className="rating">⭐{rating}</h4>
-        <span className="summary">{summary}</span>
-      </div>
+    <div>
+      <h1>Add New Movie</h1>
+      <input
+        placeholder='Enter poster URL' />
+      <input placeholder='Enter movie name' />
+      <input placeholder='Enter rating' />
+      <input placeholder='Enter summary' />
+      <button>Add Movie</button>
     </div>
-  )
+  );
 }
 
 export default App;
