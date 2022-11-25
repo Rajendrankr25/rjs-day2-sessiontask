@@ -36,6 +36,13 @@
   padding: 5px 10px;
 }
 
+.navigation {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 /* .movie-poster {
   height: 640px;
   width: 100%;
