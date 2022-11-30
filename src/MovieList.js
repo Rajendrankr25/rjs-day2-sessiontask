@@ -8,7 +8,7 @@ export function MovieList({ movieList }) {
         <div>
             <div className='movie-list'>
                 {movieList.map((data, index) => (
-                    <Movie key={index} movie={data} />
+                    <Movie key={index} movie={data} idx={index} />
                 ))}
             </div>
         </div>

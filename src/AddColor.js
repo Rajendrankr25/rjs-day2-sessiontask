@@ -10,6 +10,7 @@ export function AddColor() {
     ]);
     return (
         <div>
+            <h1>Color Game</h1>
             <input
                 style={styles}
                 onChange={(event) => setColor(event.target.value)}
