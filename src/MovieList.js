@@ -1,49 +1,40 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Movie } from './Movie';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-export function MovieList({ movieList }) {
+
+
+export function MovieList() {
+
+    const [movieList, setMovieList] = useState([]);
+
+    const getMovies = () => {
+        fetch("https://63899fddc5356b25a203eddb.mockapi.io/movies", { method: "GET" })
+            .then((data) => data.json())
+            .then((movies) => setMovieList(movies));
+    }
+
+    useEffect(() => getMovies(), []);
+
+    const deleteMovie = (id) => {
+        fetch(`https://63899fddc5356b25a203eddb.mockapi.io/movies/${id}`, { method: "DELETE" })
+            .then((data) => getMovies());
+    }
+
     return (
         <div>
             <div className='movie-list'>
-                {movieList.map((data, index) => (
-                    <Movie key={index} movie={data} idx={index} />
+                {movieList.map((data) => (
+                    <Movie key={data.id} movie={data} idx={data.id}
+                        deleteButton={<IconButton onClick={() => deleteMovie(data.id)} aria-label="delete">
+                            <DeleteIcon />
+                        </IconButton>
+                        } />
+
                 ))}
             </div>
         </div>
     );
 }
 
-export function AddMovie({ movieList, setMovieList }) {
-
-    const [title, setTitle] = useState('');
-    const [poster, setPoster] = useState('');
-    const [rating, setRating] = useState('');
-    const [summary, setSummary] = useState('');
-
-    const addNewMovie = () => {
-        const newMovie = {
-            poster: poster,
-            title: title,
-            rating: rating,
-            summary: summary
-        };
-        setMovieList([...movieList, newMovie]);
-    };
-
-    return (
-        <div className='add-movie'>
-            <h1>Add New Movie</h1>
-            <TextField label="Movie Name" variant="outlined"
-                onChange={(event) => setTitle(event.target.value)} />
-            <TextField label="Movie Poster URL" variant="outlined"
-                onChange={(event) => setPoster(event.target.value)} />
-            <TextField label="Rating" variant="outlined"
-                onChange={(event) => setRating(event.target.value)} />
-            <TextField label="Summary" variant="outlined"
-                onChange={(event) => setSummary(event.target.value)} />
-            <Button variant="outlined" onClick={addNewMovie}>Add Movie</Button>
-        </div>
-    )
-}
