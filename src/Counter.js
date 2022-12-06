@@ -7,12 +7,6 @@ export function Counter() {
     let [like, setLike] = useState(0);
     let [disLike, setDisLike] = useState(0);
 
-    const styles = {
-        border: "none",
-        backgroundColor: "white",
-        fontSize: "20px",
-    };
-
     const incrLikes = () => setLike(like + 1);
     const incrDisLikes = () => setDisLike(disLike + 1);
 

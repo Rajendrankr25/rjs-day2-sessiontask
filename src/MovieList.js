@@ -27,11 +27,10 @@ export function MovieList() {
             <div className='movie-list'>
                 {movieList.map((data) => (
                     <Movie key={data.id} movie={data} idx={data.id}
-                        deleteButton={<IconButton onClick={() => deleteMovie(data.id)} aria-label="delete">
-                            <DeleteIcon />
-                        </IconButton>
-                        } />
-
+                        deleteButton={<IconButton color='error' sx={{ marginLeft: 'auto' }}
+                            onClick={() => deleteMovie(data.id)} aria-label="delete">
+                            <DeleteIcon /></IconButton>}
+                    />
                 ))}
             </div>
         </div>

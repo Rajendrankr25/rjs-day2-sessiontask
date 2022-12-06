@@ -23,10 +23,14 @@ export function Movie({ movie, idx, deleteButton }) {
                 <CardContent>
                     <div className='movieSpecs'>
                         <h4 className="title">{movie.title}
-                            <IconButton onClick={() => setShow(!show)} color="primary" aria-label="toggle">
+                            <IconButton
+                                color="primary"
+                                onClick={() => setShow(!show)} aria-label="toggle">
                                 {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                             </IconButton>
-                            <IconButton onClick={() => navigate(`/movies/${idx}`)} >
+                            <IconButton
+                                color="primary"
+                                onClick={() => navigate(`/movies/${idx}`)} >
                                 <InfoIcon />
                             </IconButton>
                         </h4>
