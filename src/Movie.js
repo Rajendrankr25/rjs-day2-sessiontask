@@ -10,7 +10,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import { useNavigate } from 'react-router-dom';
 
 
-export function Movie({ movie, idx, deleteButton }) {
+export function Movie({ movie, idx, deleteButton, editButton }) {
     const styles = {
         color: movie.rating >= 8 ? "green" : "red"
     };
@@ -39,7 +39,7 @@ export function Movie({ movie, idx, deleteButton }) {
                     {show ? <p className="summary">{movie.summary}</p> : null}
                 </CardContent>
                 <CardActions>
-                    <Counter /> {deleteButton}
+                    <Counter /> {editButton}{deleteButton}
                 </CardActions>
             </Card >
             <br></br>

@@ -1,43 +1,45 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
 
-const movieValidationSchema = yup.object({
+const formValidationSchema = yup.object({
     email: yup.string().min(8).required("enter email"),
     password: yup.string().min(4).required("enter password")
 });
 
 export function BasicForm() {
-    const formik = useFormik({
+    const [handleSubmit, values, handleChange, handleBlur, touched, errors] = useFormik({
         initialValues: {
             email: "",
             password: ""
         },
-        validationSchema: movieValidationSchema,
+        validationSchema: formValidationSchema,
         onSubmit: (values) => {
             console.log("Submited", values);
         }
     })
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form className="basic-form" onSubmit={handleSubmit}>
             <h1>Basic Form</h1>
             <input
                 type="email"
-                value={formik.values.email}
+                value={values.email}
                 placeholder="email"
                 name="email"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                onChange={handleChange}
+                onBlur={handleBlur}
             />
-            {formik.touched.email && formik.errors.email ? formik.errors.email : null}
+            {touched.email && errors.email ? errors.email : null}
+            <br />
             <input
                 type="text"
-                value={formik.values.password}
+                value={values.password}
                 placeholder="password"
                 name="password"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                onChange={handleChange}
+                onBlur={handleBlur}
             />
-            {formik.touched.password && formik.errors.password ? formik.errors.password : null}
+            {touched.password && errors.password ? errors.password : null}
+            <br />
             <button type="submit">Submit</button>
         </form>
     );
