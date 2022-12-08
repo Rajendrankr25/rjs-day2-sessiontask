@@ -7,7 +7,7 @@ const formValidationSchema = yup.object({
 });
 
 export function BasicForm() {
-    const [handleSubmit, values, handleChange, handleBlur, touched, errors] = useFormik({
+    const { handleSubmit, values, handleChange, handleBlur, touched, errors } = useFormik({
         initialValues: {
             email: "",
             password: ""

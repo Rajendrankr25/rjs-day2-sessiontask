@@ -3,6 +3,7 @@ import { Movie } from './Movie';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -23,15 +24,19 @@ export function MovieList() {
             .then((data) => getMovies());
     }
 
+    const navigate = useNavigate();
+
     return (
         <div>
             <div className='movie-list'>
                 {movieList.map((data) => (
                     <Movie key={data.id} movie={data} idx={data.id}
+                        editButton={<IconButton sx={{ marginLeft: 'auto' }}
+                            onClick={() => navigate(`/movies/edit/${data.id}`)}
+                        ><EditIcon /></IconButton>}
                         deleteButton={<IconButton color='error' sx={{ marginLeft: 'auto' }}
                             onClick={() => deleteMovie(data.id)} aria-label="delete">
                             <DeleteIcon /></IconButton>}
-                        editButton={<IconButton><EditIcon /></IconButton>}
                     />
                 ))}
             </div>

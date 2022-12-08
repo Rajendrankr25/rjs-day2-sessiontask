@@ -13,6 +13,7 @@ import { MovieDetails } from './MovieDetails';
 import { Home } from './Home';
 import { NotFound } from './NotFound';
 import { BasicForm } from './BasicForm';
+import { MovieEdit } from './MovieEdit';
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -50,6 +51,7 @@ function App() {
             <Route path="/color-game" element={<AddColor />} />
             <Route path="/basic-form" element={<BasicForm />} />
             <Route path="/movies/:id" element={<MovieDetails />} />
+            <Route path="/movies/edit/:id" element={<MovieEdit />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </ Paper>
