@@ -5,4 +5,4 @@
 //export const API = "http://localhost:4000"
 
 //vercel link for node+express server
-export const API = "https://mongo-db-node-express.vercel.app/"
+export const API = "https://mongo-db-node-express.vercel.app"
