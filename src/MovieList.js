@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useNavigate } from 'react-router-dom';
+import { API } from './global';
 
 
 
@@ -12,7 +13,7 @@ export function MovieList() {
     const [movieList, setMovieList] = useState([]);
 
     const getMovies = () => {
-        fetch("https://63899fddc5356b25a203eddb.mockapi.io/movies", { method: "GET" })
+        fetch(`${API}/movies`, { method: "GET" })
             .then((data) => data.json())
             .then((movies) => setMovieList(movies));
     }
@@ -20,7 +21,7 @@ export function MovieList() {
     useEffect(() => getMovies(), []);
 
     const deleteMovie = (id) => {
-        fetch(`https://63899fddc5356b25a203eddb.mockapi.io/movies/${id}`, { method: "DELETE" })
+        fetch(`${API}/movies/${id}`, { method: "DELETE" })
             .then((data) => getMovies());
     }
 
@@ -30,12 +31,12 @@ export function MovieList() {
         <div>
             <div className='movie-list'>
                 {movieList.map((data) => (
-                    <Movie key={data.id} movie={data} idx={data.id}
+                    <Movie key={data._id} movie={data} idx={data._id}
                         editButton={<IconButton sx={{ marginLeft: 'auto' }}
-                            onClick={() => navigate(`/movies/edit/${data.id}`)}
+                            onClick={() => navigate(`/movies/edit/${data._id}`)}
                         ><EditIcon /></IconButton>}
                         deleteButton={<IconButton color='error' sx={{ marginLeft: 'auto' }}
-                            onClick={() => deleteMovie(data.id)} aria-label="delete">
+                            onClick={() => deleteMovie(data._id)} aria-label="delete">
                             <DeleteIcon /></IconButton>}
                     />
                 ))}

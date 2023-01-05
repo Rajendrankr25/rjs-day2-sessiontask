@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { API } from './global';
 
 const movieValidationScheme = yup.object({
     title: yup.string().required("Please enter movie name"),
@@ -33,7 +34,7 @@ export function AddMovie() {
 
     const addNewMovie = (newMovie) => {
 
-        fetch("https://63899fddc5356b25a203eddb.mockapi.io/movies", {
+        fetch(`${API}/movies`, {
             method: "POST",
             body: JSON.stringify(newMovie),
             headers: { "Content-type": "application/json" },
