@@ -22,7 +22,7 @@ export function Movie({ movie, idx, deleteButton, editButton }) {
                 <img className="poster" src={movie.poster} alt={movie.title} />
                 <CardContent>
                     <div className='movieSpecs'>
-                        <h4 className="title">{movie.title}
+                        <h4 className="title">{movie.name}
                             <IconButton
                                 color="primary"
                                 onClick={() => setShow(!show)} aria-label="toggle">

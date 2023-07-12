@@ -30,7 +30,7 @@ export function MovieDetails() {
             </iframe>
             <div className='movie-details-container'>
                 <div className='movieSpecs'>
-                    <h4 className="title">{movie.title}
+                    <h4 className="title">{movie.name}
                     </h4>
                     <p style={styles} className="rating">⭐{movie.rating}</p>
                 </div>
