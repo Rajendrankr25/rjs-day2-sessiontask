@@ -12,7 +12,7 @@ import Paper from '@mui/material/Paper';
 import { MovieDetails } from './MovieDetails';
 import { Home } from './Home';
 import { NotFound } from './NotFound';
-import { BasicForm } from './BasicForm';
+//import { BasicForm } from './BasicForm';
 import { MovieEdit } from './MovieEdit';
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
             <Route path="/movies" element={<MovieList />} />
             <Route path="/movies/add" element={<AddMovie movieList={movieList} setMovieList={setMovieList} />} />
             <Route path="/color-game" element={<AddColor />} />
-            <Route path="/basic-form" element={<BasicForm />} />
+            {/* <Route path="/basic-form" element={<BasicForm />} /> */}
             <Route path="/movies/:id" element={<MovieDetails />} />
             <Route path="/movies/edit/:id" element={<MovieEdit />} />
             <Route path="*" element={<NotFound />} />
