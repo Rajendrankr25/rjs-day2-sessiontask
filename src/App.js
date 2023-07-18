@@ -36,7 +36,7 @@ function App() {
               <Button color="inherit" onClick={() => navigate("/movies")}>Movies</Button>
               <Button color="inherit" onClick={() => navigate("/movies/add")}>Add Movies</Button>
               <Button color="inherit" onClick={() => navigate("/color-game")}>Color Game</Button>
-              <Button color="inherit" onClick={() => navigate("/basic-form")}>Basic Form</Button>
+              {/* <Button color="inherit" onClick={() => navigate("/basic-form")}>Basic Form</Button> */}
               <Button
                 sx={{ marginLeft: 'auto' }}
                 color="inherit"
